@@ -1,4 +1,4 @@
-# VendorSalesSummaryFinal
+# Vendor Sales Summary
 # End-to-End Data Analysis Project
 
 ## Project Overview
