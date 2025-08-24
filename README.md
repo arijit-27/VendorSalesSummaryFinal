@@ -1,4 +1,4 @@
-# Vendor Sales Summary
+# Vendor Sales Insights Dashboard
 # End-to-End Data Analysis Project
 
 ## Project Overview
