@@ -7,23 +7,23 @@ This project is an end-to-end data analysis workflow that involves handling mult
 
 ## Data Sources
 
-The project starts by working with six major datasets:
+The project starts by working with six major datasets, which are quite large:
 
-- **Sales**  
-- **Purchases**  
-- **Begin_inventory**  
-- **End_inventory**  
-- **Vendor_invoice**  
-- **Purchase_prices**  
-
-These datasets are used as the foundational data for the entire analysis.
+- **Begin_inventory**: shape (206,529, 9)  
+- **End_inventory**: shape (224,489, 9)  
+- **Vendor_invoice**: shape (5,543, 10)  
+- **Purchase_prices**: shape (12,261, 9)  
+- **Sales**: shape (12,372,474, 16) — this dataset contains over 13 million records and requires special handling due to its size  
 
 ## Workflow
 
 1. **Database Creation**  
-   Using the Google Colab environment, a SQLite database is created to efficiently store and process the multiple datasets.
+   Using the Google Colab environment, a SQLite database is created to efficiently store and process the multiple large datasets.
 
-2. **Data Exploration and SQL Querying**  
+2. **Handling Large Sales Data**  
+   Given the massive size of the Sales dataset (over 13 million rows), it is ingested in chunks of 5,000,000 rows to avoid exhausting RAM and to prevent timeout errors during processing.
+
+3. **Data Exploration and SQL Querying**  
    The initial step involves understanding the key parameters in each table relevant to the analysis. Through carefully crafted SQL queries, a desired summary table is created with the following columns:  
    - VendorNumber  
    - VendorName  
@@ -40,13 +40,13 @@ These datasets are used as the foundational data for the entire analysis.
    - TotalExciseTax  
    - FreightCost  
 
-3. **Exploratory Data Analysis (EDA)**  
+4. **Exploratory Data Analysis (EDA)**  
    Utilizing Python libraries such as Matplotlib, Seaborn, and Pandas, extensive exploratory data analysis is performed on the resulting dataset to uncover patterns, trends, and anomalies.
 
-4. **Statistical Analysis**  
+5. **Statistical Analysis**  
    Hypothesis testing and confidence interval calculations are executed to validate insights and support data-driven conclusions.
 
-5. **Visualization and Reporting**  
+6. **Visualization and Reporting**  
    The analysis culminates with the creation of a Power BI dashboard that visualizes key metrics and trends interactively. A comprehensive report summarizes all findings.
 
 ## Technologies Used
@@ -58,8 +58,9 @@ These datasets are used as the foundational data for the entire analysis.
 
 ## Project Outcome
 
-This project demonstrates the ability to integrate multiple data sources, build a relational database, perform complex data manipulations, and deliver actionable insights through statistical analysis and interactive visualizations. It provides a full-cycle example of real-world data analysis from raw data to business intelligence reporting.
+This project demonstrates the ability to integrate multiple massive data sources, build a relational database, perform complex data manipulations on large datasets with memory-efficient chunk processing, and deliver actionable insights through statistical analysis and interactive visualizations. It provides a full-cycle example of real-world data analysis from raw data to business intelligence reporting.
 
 ---
 
 Feel free to explore the notebook and dashboards to understand the detailed steps and insights.
+
